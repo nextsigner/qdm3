@@ -398,6 +398,7 @@ Item {
         }
         return sp
     }
+    
     Component.onCompleted: {
         controles.asec=[0,10]
         var at=''
