@@ -17,7 +17,6 @@ Item {
         horizontalAlignment: Text.AlignHCenter
     }
 
-
     //2
     Row{
         id:x2
@@ -398,6 +397,7 @@ Item {
         }
         return sp
     }
+
     Component.onCompleted: {
         controles.asec=[0,10]
         var at=''
