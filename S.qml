@@ -139,7 +139,10 @@ Item {
                 x:parseInt(app.fs)
                 y: parseInt(app.fs)+xV4.tvh
                 color: tColors.running?arrcolors[tColors.v]:'red'
-                text:'Texto de Ejemplo'
+                text:'<i>Texto de Ejemplo</i>'
+                font.pixelSize: app.fs
+                textFormat: Text.Normal
+                wrapMode: Text.WrapAnywhere
                 property var arrcolors:['red', 'pink', '#ff8833', 'green', 'gray']
                 property var arrbws:[app.fs*0.1, app.fs*0.3, 1, app.fs*0.8, app.fs*0.5,app.fs*1.5]
                 Timer{
@@ -420,15 +423,20 @@ Item {
 
                 La propiedad COLOR se utiliza para definir el color del texto.  El tipo de dato que se requiere para esta propiedad es un cadena de texto, un dato del tipo STRING ya sea entre comillas dobles o simples que contenga el nombre de un color o el valor hexadecimal de un color.
 
-                La propiedad font.pixelSize se utiliza para definir el tamaño en pixeles que tendra el cada caracter del texto. Esta propiedad se define mediante un tipo de dato NUMERO ENTERO.'
+                La propiedad font.pixelSize se utiliza para definir el tamaño en pixeles que tendra cada caracter del texto. Esta propiedad se define mediante un tipo de dato NUMERO ENTERO.'
 
         at+=e(25)
         //PQ
-        at+='Este elemento nos permite mortrar diferentes tipos de textos dentro de la pantalla de la aplicaciòn. Ademàs de las propiedades principales, contamos otras propiedades que nos permitiràn mostrar el texto con otras caracterìsticas màs avanzadas de diseño. Tengamos en cuenta que por defecto, este elemento Text{} soporta algunos tags o etiquetas html relacionados con el estilo de texto. Por ejemplo para mostrar el texto en negrita podemos utilizar la etiqueta &lt;b&gt;, para mostrar el texto subrayado utilizamos la etiqueta &lt;u&gt; o para mostrar el texto en inclinado utilizamos la etiqueta &lt;i&gt;. Si necesitamos que nuestro elemento soporte màs etiquetas HTML, debemos modificar la propiedad textFormat. Esta ùltima propiedad requiere de un valor algo atìpico, que no son ni string, ni numero entero, ni un dato booleano, por lo cuàl en pròximas secciones explicaremos en detalle en que consisten.'
+        at+='Este elemento nos permite mortrar diferentes tipos de textos dentro de la pantalla de la aplicaciòn. Ademàs de las propiedades principales, contamos otras propiedades que nos permitiràn mostrar el texto con otras caracterìsticas màs avanzadas de diseño. Tengamos en cuenta que por defecto, este elemento Text{} soporta algunos tags o etiquetas html relacionados con el estilo de texto. Por ejemplo para mostrar el texto en negrita podemos utilizar la etiqueta &lt;b&gt;, para mostrar el texto subrayado utilizamos la etiqueta &lt;u&gt; o para mostrar el texto en inclinado utilizamos la etiqueta &lt;i&gt;. '
 
         at+=e(25)
         //Ie
-        at+='Este elemento Text{} hereda todas las propiedades del elemento Item{}. '
+        at+='Este elemento Text{} hereda todas las propiedades del elemento Item{}.  Su posiciòn, dimensiones y tipo de visibilidad se define modificando las propiedades heredadas desde el elemento Item{} desde el cual este elemento Text{} fue creado.
+
+    Si queremos mostrar un texto con un formato que soporte màs etiquetas HTML, debemos definir el valor de la propiedad textFormat asignandole un valor enumerador del elemento Text{} llamado RichText. La propiedad textFormat viene con el valor NORMAL por defecto y tambièn puede ser definido como PLAINTEXT.
+
+    En principio el elemento Text{} se comporta como un texto de una lìnea ùnica, sin ajuste de lìnea, es decir que solo se mostrarà con saltos de lìnea si tiene saltos de linea escritos en la propiedad text. Para que este elemento tenga un ajuste de lìnea automàtico, debemos definir su propiedad WIDTH y luego debemos definir  la propiedad wrapMode con el enumerador Text.WordWrap para ajustar por palabras o Text.WrapAnywhere para ajustar por caracteres.
+'
 
         xT.at=at.replace(/\n/g, ' ')
     }
