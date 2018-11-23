@@ -139,10 +139,10 @@ Item {
                 x:parseInt(app.fs)
                 y: parseInt(app.fs)+xV4.tvh
                 color: tColors.running?arrcolors[tColors.v]:'red'
-                text:'<i>Texto de Ejemplo</i>'
+                text:'<b>Texto de Ejemplo</b>'
                 font.pixelSize: app.fs
                 textFormat: Text.Normal
-                wrapMode: Text.WrapAnywhere
+                //wrapMode: Text.WrapAnywhere
                 property var arrcolors:['red', 'pink', '#ff8833', 'green', 'gray']
                 property var arrbws:[app.fs*0.1, app.fs*0.3, 1, app.fs*0.8, app.fs*0.5,app.fs*1.5]
                 Timer{
@@ -166,251 +166,274 @@ Item {
     }
 
 
-//    //3
-//    Row{
-//        id:x3
-//        anchors.centerIn: r
-//        opacity:0.0
-//        spacing:app.fs
-//        property int fsh: r.height*0.045
-//        Behavior on opacity{NumberAnimation{duration:500}}
-//        Column{
-//            spacing: x3.fsh*0.15
-//            Text{
-//                text:'<b>Còdigo QML - Elemento Rectangle</b>'
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//            Text{
-//                text:'import QtQuick 2.0'
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//            Text{
-//                text:'Rectangle{'
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//            Item{
-//                width: colTextos100.width
-//                height: colTextos100.height
-//                Marco{
-//                    padding:app.fs*0.5
-//                    Text{
-//                        text:'Propiedades\nHeredadas\ndel\nElemento Item{}'
-//                        font.pixelSize: x3.fsh*0.65
-//                        color: app.c2
-//                        anchors.verticalCenter: parent.verticalCenter
-//                        anchors.left: parent.right
-//                        anchors.leftMargin:app.fs
-//                        horizontalAlignment: Text.AlignHCenter
-//                        Marco{padding:app.fs*0.25}
-//                        Rectangle{
-//                            width: app.fs
-//                            height: app.fs*0.1
-//                            color:app.c2
-//                            anchors.verticalCenter: parent.verticalCenter
-//                            anchors.right: parent.left
-//                        }
-//                    }
-//                }
-//                Column{
-//                    id:colTextos100
-//                    spacing: x3.fsh*0.15
-//                    Text{
-//                        text:'       x:'+parseInt(rect2.x)+'\n       y:'+parseInt(rect2.y)
-//                        font.pixelSize: x3.fsh
-//                        color: app.c2
-//                    }
-//                    Text{
-//                        text:'       widht:'+parseInt(rect2.width)+'\n       heigth:'+parseInt(rect2.height)
-//                        font.pixelSize: x3.fsh
-//                        color: app.c2
-//                    }
-//                    Text{
-//                        text:'       opacity:'+parseFloat(rect2.opacity).toFixed(1)+'\n       visible:'+rect2.visible+'    '
-//                        font.pixelSize: x3.fsh
-//                        color: app.c2
-//                    }
-//                }
-//            }
-//            Text{
-//                text:'       color:"'+rect1.color+'"'
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//            Text{
-//                text:'       radius:'+parseInt(rect1.radius)
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//            Text{
-//                text:'       border.color:"'+rect1.border.color+'"'
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//            Text{
-//                text:'       border.width:'+parseInt(rect1.border.width)
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//            Text{
-//                text:'}'
-//                font.pixelSize: x3.fsh
-//                color: app.c2
-//            }
-//        }
+    //    //3
+    //    Row{
+    //        id:x3
+    //        anchors.centerIn: r
+    //        opacity:0.0
+    //        spacing:app.fs
+    //        property int fsh: r.height*0.045
+    //        Behavior on opacity{NumberAnimation{duration:500}}
+    //        Column{
+    //            spacing: x3.fsh*0.15
+    //            Text{
+    //                text:'<b>Còdigo QML - Elemento Rectangle</b>'
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //            Text{
+    //                text:'import QtQuick 2.0'
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //            Text{
+    //                text:'Rectangle{'
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //            Item{
+    //                width: colTextos100.width
+    //                height: colTextos100.height
+    //                Marco{
+    //                    padding:app.fs*0.5
+    //                    Text{
+    //                        text:'Propiedades\nHeredadas\ndel\nElemento Item{}'
+    //                        font.pixelSize: x3.fsh*0.65
+    //                        color: app.c2
+    //                        anchors.verticalCenter: parent.verticalCenter
+    //                        anchors.left: parent.right
+    //                        anchors.leftMargin:app.fs
+    //                        horizontalAlignment: Text.AlignHCenter
+    //                        Marco{padding:app.fs*0.25}
+    //                        Rectangle{
+    //                            width: app.fs
+    //                            height: app.fs*0.1
+    //                            color:app.c2
+    //                            anchors.verticalCenter: parent.verticalCenter
+    //                            anchors.right: parent.left
+    //                        }
+    //                    }
+    //                }
+    //                Column{
+    //                    id:colTextos100
+    //                    spacing: x3.fsh*0.15
+    //                    Text{
+    //                        text:'       x:'+parseInt(rect2.x)+'\n       y:'+parseInt(rect2.y)
+    //                        font.pixelSize: x3.fsh
+    //                        color: app.c2
+    //                    }
+    //                    Text{
+    //                        text:'       widht:'+parseInt(rect2.width)+'\n       heigth:'+parseInt(rect2.height)
+    //                        font.pixelSize: x3.fsh
+    //                        color: app.c2
+    //                    }
+    //                    Text{
+    //                        text:'       opacity:'+parseFloat(rect2.opacity).toFixed(1)+'\n       visible:'+rect2.visible+'    '
+    //                        font.pixelSize: x3.fsh
+    //                        color: app.c2
+    //                    }
+    //                }
+    //            }
+    //            Text{
+    //                text:'       color:"'+rect1.color+'"'
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //            Text{
+    //                text:'       radius:'+parseInt(rect1.radius)
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //            Text{
+    //                text:'       border.color:"'+rect1.border.color+'"'
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //            Text{
+    //                text:'       border.width:'+parseInt(rect1.border.width)
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //            Text{
+    //                text:'}'
+    //                font.pixelSize: x3.fsh
+    //                color: app.c2
+    //            }
+    //        }
 
-//        Xv{
-//            id:v3
-//            tvh:app.fs
-//            width: app.fs*16
-//            height: r.height-app.fs*8
-//            clip:false
-//           anchors.verticalCenter: parent.verticalCenter
-//            Rectangle{
-//                id:rect2
-//                width: app.fs*6
-//                height: app.fs*5
-//                x:parseInt(app.fs)
-//                y: parseInt(app.fs)+xV4.tvh
-//                radius: app.fs*0.75
-//                color: '#ff8833'
-//                border.color: 'red'
-//                border.width: app.fs*0.5
-//                property var arrdim: [app.fs*3, app.fs*2, app.fs*4.5]
-//                property var arrpos: [app.fs*1, app.fs*3, app.fs*2]
-//                property var arrops: [0.5, 1.0,0.1, 0.8]
-//                Behavior on x{NumberAnimation{duration:500}}
-//                Behavior on y{NumberAnimation{duration:500}}
-//                Behavior on width{NumberAnimation{duration:500}}
-//                Behavior on height{NumberAnimation{duration:500}}
-//                Behavior on opacity{NumberAnimation{duration:500}}
-//                Marco{
-//                    id:marcoItem; padding: 2
-//                    Rectangle{
-//                        width: app.fs
-//                        height: 1
-//                        color:app.c2
-//                        anchors.verticalCenter: parent.verticalCenter
-//                        anchors.left: parent.right
-//                    }
-//                    Text{
-//                        text:'Elemento\nItem{}\nBase'
-//                        font.pixelSize: app.fs*0.5
-//                        color:app.c2
-//                        horizontalAlignment: Text.AlignHCenter
-//                        anchors.verticalCenter: parent.verticalCenter
-//                        anchors.left: parent.right
-//                        anchors.leftMargin: app.fs
-//                        Marco{padding: app.fs*0.25}
-//                    }
+    //        Xv{
+    //            id:v3
+    //            tvh:app.fs
+    //            width: app.fs*16
+    //            height: r.height-app.fs*8
+    //            clip:false
+    //           anchors.verticalCenter: parent.verticalCenter
+    //            Rectangle{
+    //                id:rect2
+    //                width: app.fs*6
+    //                height: app.fs*5
+    //                x:parseInt(app.fs)
+    //                y: parseInt(app.fs)+xV4.tvh
+    //                radius: app.fs*0.75
+    //                color: '#ff8833'
+    //                border.color: 'red'
+    //                border.width: app.fs*0.5
+    //                property var arrdim: [app.fs*3, app.fs*2, app.fs*4.5]
+    //                property var arrpos: [app.fs*1, app.fs*3, app.fs*2]
+    //                property var arrops: [0.5, 1.0,0.1, 0.8]
+    //                Behavior on x{NumberAnimation{duration:500}}
+    //                Behavior on y{NumberAnimation{duration:500}}
+    //                Behavior on width{NumberAnimation{duration:500}}
+    //                Behavior on height{NumberAnimation{duration:500}}
+    //                Behavior on opacity{NumberAnimation{duration:500}}
+    //                Marco{
+    //                    id:marcoItem; padding: 2
+    //                    Rectangle{
+    //                        width: app.fs
+    //                        height: 1
+    //                        color:app.c2
+    //                        anchors.verticalCenter: parent.verticalCenter
+    //                        anchors.left: parent.right
+    //                    }
+    //                    Text{
+    //                        text:'Elemento\nItem{}\nBase'
+    //                        font.pixelSize: app.fs*0.5
+    //                        color:app.c2
+    //                        horizontalAlignment: Text.AlignHCenter
+    //                        anchors.verticalCenter: parent.verticalCenter
+    //                        anchors.left: parent.right
+    //                        anchors.leftMargin: app.fs
+    //                        Marco{padding: app.fs*0.25}
+    //                    }
 
-//                }
+    //                }
 
-//                Text{
-//                    id:txtmi
-//                    text:'Rectangle Herada\nde Item{}\nsus Propiedades\ny Mètodos'
-//                    font.pixelSize: app.fs*0.35
-//                    color:'white'
-//                    horizontalAlignment: Text.AlignHCenter
-//                    anchors.verticalCenter: parent.verticalCenter
-//                    anchors.left: parent.right
-//                    anchors.leftMargin: app.fs
-//                    anchors.centerIn: parent
-//                }
-//                Timer{
-//                    id:tDim
-//                    running: false
-//                    repeat: true
-//                    interval: 1000
-//                    property int v: 0
-//                    onTriggered: {
-//                        if(v<rect2.arrdim.length-1){
-//                            v++
-//                        }else{
-//                            v=0
-//                        }
-//                        rect2.width=rect2.arrdim[v]
-//                        rect2.height=rect2.arrdim[v]
-//                    }
-//                }
-//                Timer{
-//                    id:tPos
-//                    running: false
-//                    repeat: true
-//                    interval: 1000
-//                    property int v: 0
-//                    onTriggered: {
-//                        if(v<rect2.arrpos.length-1){
-//                            v++
-//                        }else{
-//                            v=0
-//                        }
-//                        rect2.x=rect2.arrpos[v]
-//                        rect2.y=rect2.arrpos[v]
-//                    }
-//                }
-//                Timer{
-//                    id:tOp
-//                    running: false
-//                    repeat: true
-//                    interval: 1555
-//                    property int v: 0
-//                    onTriggered: {
-//                        if(v<rect2.arrops.length-1){
-//                            v++
-//                        }else{
-//                            v=0
-//                        }
-//                        rect2.opacity=rect2.arrops[v]
-//                    }
-//                }
-//                Timer{
-//                    id:tVis
-//                    running: false
-//                    repeat: true
-//                    interval: 2155
-//                    property int v: 0
-//                    onTriggered: {
-//                        rect2.visible=!rect2.visible
-//                    }
-//                }
-//            }
-//        }
+    //                Text{
+    //                    id:txtmi
+    //                    text:'Rectangle Herada\nde Item{}\nsus Propiedades\ny Mètodos'
+    //                    font.pixelSize: app.fs*0.35
+    //                    color:'white'
+    //                    horizontalAlignment: Text.AlignHCenter
+    //                    anchors.verticalCenter: parent.verticalCenter
+    //                    anchors.left: parent.right
+    //                    anchors.leftMargin: app.fs
+    //                    anchors.centerIn: parent
+    //                }
+    //                Timer{
+    //                    id:tDim
+    //                    running: false
+    //                    repeat: true
+    //                    interval: 1000
+    //                    property int v: 0
+    //                    onTriggered: {
+    //                        if(v<rect2.arrdim.length-1){
+    //                            v++
+    //                        }else{
+    //                            v=0
+    //                        }
+    //                        rect2.width=rect2.arrdim[v]
+    //                        rect2.height=rect2.arrdim[v]
+    //                    }
+    //                }
+    //                Timer{
+    //                    id:tPos
+    //                    running: false
+    //                    repeat: true
+    //                    interval: 1000
+    //                    property int v: 0
+    //                    onTriggered: {
+    //                        if(v<rect2.arrpos.length-1){
+    //                            v++
+    //                        }else{
+    //                            v=0
+    //                        }
+    //                        rect2.x=rect2.arrpos[v]
+    //                        rect2.y=rect2.arrpos[v]
+    //                    }
+    //                }
+    //                Timer{
+    //                    id:tOp
+    //                    running: false
+    //                    repeat: true
+    //                    interval: 1555
+    //                    property int v: 0
+    //                    onTriggered: {
+    //                        if(v<rect2.arrops.length-1){
+    //                            v++
+    //                        }else{
+    //                            v=0
+    //                        }
+    //                        rect2.opacity=rect2.arrops[v]
+    //                    }
+    //                }
+    //                Timer{
+    //                    id:tVis
+    //                    running: false
+    //                    repeat: true
+    //                    interval: 2155
+    //                    property int v: 0
+    //                    onTriggered: {
+    //                        rect2.visible=!rect2.visible
+    //                    }
+    //                }
+    //            }
+    //        }
 
-//    }
+    //    }
 
 
 
-     Timer{
+    Timer{
         running: r.visible
         repeat: true
         interval: 250
         onTriggered: {
+            //Longitud de Audio 5:28=328
             x1.opacity=app.p(0, 6)?1.0:0.0
-            x2.opacity=app.p(6, 100)?1.0:0.0
+            x2.opacity=app.p(6, 328)?1.0:0.0
+            mm1.opacity=app.p(11.5, 15)?1.0:0.0
+            mm2.opacity=app.p(15, 22)?1.0:0.0
 
+            if(app.p(32, 35)){
+                mr1.opacity=1.0
+                mr2.opacity=0.0
+                mr3.opacity=0.0
+                //mr4.opacity=0.0
+            }else if(app.p(35, 38)){
+                mr1.opacity=0.0
+                mr2.opacity=1.0
+                mr3.opacity=0.0
+                //mr4.opacity=0.0
+            }else if(app.p(38, 42)){
+                mr1.opacity=0.0
+                mr2.opacity=0.0
+                mr3.opacity=1.0
+                //mr4.opacity=1.0
+            }else{
+                mr1.opacity=0.0
+                mr2.opacity=0.0
+                mr3.opacity=0.0
+                //mr4.opacity=0.0
+            }
         }
     }
     function e(n){
         var sp=''
         for(var i=0;i<n;i++){
-            sp+='   '
+            sp+=' '
         }
         return sp
     }
 
     Component.onCompleted: {
-        controles.asec=[0,10]
+        controles.asec=[0,10, 21, 32, 44]
         var at=''
         //Pr
         at+='Elemento Text'
-        at+=e(25)
+        at+=e(50)
         //Req
         at+='Para utilizar este elemento es necesario importar la librerìa QtQuick. Para este curso te recomendamos la versiòn 2.0 '
-
-        at+=e(25)
+        at+=e(100)
         //Q
         at+='Es un elemento que nos permite mostrar texto en la aplicaciòn.'
         at+=e(10)
@@ -419,25 +442,29 @@ Item {
 
         at+=e(15)
         //PN
-        at+='La propiedad TEXT se utiliza para definir el texto.  El tipo de dato que se requiere para esta propiedad es un cadena de texto, un dato del tipo STRING ya sea entre comillas dobles o simples que contenga el texto que deseamos mostrar en pantalla.
+        at+='La propiedad TEXT se utiliza para definir el texto.  El tipo de dato que se requiere para esta propiedad es un cadena de texto, un dato del tipo STRING ya sea entre comillas dobles o simples que contenga el texto que deseamos mostrar en pantalla. '
 
-                La propiedad COLOR se utiliza para definir el color del texto.  El tipo de dato que se requiere para esta propiedad es un cadena de texto, un dato del tipo STRING ya sea entre comillas dobles o simples que contenga el nombre de un color o el valor hexadecimal de un color.
+        at+='La propiedad COLOR se utiliza para definir el color del texto.  El tipo de dato que se requiere para esta propiedad es un cadena de texto, un dato del tipo STRING ya sea entre comillas dobles o simples que contenga el nombre de un color o el valor hexadecimal de un color.'
 
-                La propiedad font.pixelSize se utiliza para definir el tamaño en pixeles que tendra cada caracter del texto. Esta propiedad se define mediante un tipo de dato NUMERO ENTERO.'
+        at+=' La propiedad font.pixelSize se utiliza para definir el tamaño en pixeles que tendra cada caracter del texto. Esta propiedad se define mediante un tipo de dato NUMERO ENTERO.'
 
-        at+=e(25)
+        at+=e(5)
         //PQ
-        at+='Este elemento nos permite mortrar diferentes tipos de textos dentro de la pantalla de la aplicaciòn. Ademàs de las propiedades principales, contamos otras propiedades que nos permitiràn mostrar el texto con otras caracterìsticas màs avanzadas de diseño. Tengamos en cuenta que por defecto, este elemento Text{} soporta algunos tags o etiquetas html relacionados con el estilo de texto. Por ejemplo para mostrar el texto en negrita podemos utilizar la etiqueta &lt;b&gt;, para mostrar el texto subrayado utilizamos la etiqueta &lt;u&gt; o para mostrar el texto en inclinado utilizamos la etiqueta &lt;i&gt;. '
+        at+='Este elemento nos permite mortrar diferentes tipos de textos dentro de la pantalla de la aplicaciòn. Ademàs de las propiedades principales, contamos otras propiedades que nos permitiràn mostrar el texto con otras caracterìsticas màs avanzadas de diseño. Tengamos en cuenta que por defecto, este elemento Text{} soporta algunos tags o etiquetas html relacionados con el estilo de texto. Por ejemplo para mostrar el texto en negrita podemos utilizar la etiqueta <b>, para mostrar el texto subrayado utilizamos la etiqueta <u> o para mostrar el texto en inclinado utilizamos la etiqueta <i>. '
 
         at+=e(25)
         //Ie
-        at+='Este elemento Text{} hereda todas las propiedades del elemento Item{}.  Su posiciòn, dimensiones y tipo de visibilidad se define modificando las propiedades heredadas desde el elemento Item{} desde el cual este elemento Text{} fue creado.
+        at+='Si queremos mostrar un texto con un formato que soporte màs etiquetas HTML, debemos definir el valor de la propiedad textFormat asignandole un valor enumerador del elemento Text{} llamado RichText. La propiedad textFormat viene con el valor enumerador AutoText por defecto y tambièn puede ser definido con el valor enumerador PlainText si lo que deseamos es mostrar un texto plano.
 
-    Si queremos mostrar un texto con un formato que soporte màs etiquetas HTML, debemos definir el valor de la propiedad textFormat asignandole un valor enumerador del elemento Text{} llamado RichText. La propiedad textFormat viene con el valor NORMAL por defecto y tambièn puede ser definido como PLAINTEXT.
+    En principio el elemento Text{} se comporta como un texto de una lìnea ùnica, sin ajuste de lìnea, es decir que solo se mostrarà con saltos de lìnea si tiene saltos de linea escritos en la propiedad text.
 
-    En principio el elemento Text{} se comporta como un texto de una lìnea ùnica, sin ajuste de lìnea, es decir que solo se mostrarà con saltos de lìnea si tiene saltos de linea escritos en la propiedad text. Para que este elemento tenga un ajuste de lìnea automàtico, debemos definir su propiedad WIDTH y luego debemos definir  la propiedad wrapMode con el enumerador Text.WordWrap para ajustar por palabras o Text.WrapAnywhere para ajustar por caracteres.
+Para que este elemento tenga un ajuste de lìnea automàtico, debemos definir su propiedad WIDTH y luego debemos definir  la propiedad wrapMode con el enumerador Text.WordWrap para ajustar por palabras o Text.WrapAnywhere para ajustar por caracteres.
 '
+        at+=e(25)
+        //Ie
+        at+='Este elemento Text{} hereda todas las propiedades del elemento Item{}.  Su posiciòn, dimensiones y tipo de visibilidad se define modificando las propiedades heredadas desde el elemento Item{} desde el cual este elemento Text{} fue creado.'
 
+        xT.t.textFormat=Text.PlainText
         xT.at=at.replace(/\n/g, ' ')
     }
 }
