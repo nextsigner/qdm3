@@ -10,7 +10,7 @@ Item {
         id:x1
         opacity: 0.0
         Behavior on opacity{NumberAnimation{duration:500}}
-        text:'<b>Elemento QML</b><br><b>Text{}</b><br><b>Secciòn en construccion 22/11/18</b>'
+        text:'<b>Elemento QML</b><br><b>Text{}</b>'
         anchors.centerIn: r
         font.pixelSize: app.fs*2
         color: app.c2
@@ -60,9 +60,10 @@ Item {
                 color: app.c2
             }
             Text{
-                text:'       text:"'+rect1.text+'"'
+                id:text100
                 font.pixelSize: app.fs
                 color: app.c2
+                textFormat: Text.PlainText
                 Marco{id:mr1;padding:app.fs*0.1}
                 Marco{
                     id:me1;padding:app.fs*0.1
@@ -80,7 +81,7 @@ Item {
                 }
             }
             Text{
-                text:'       color:"'+rect1.color+'"'
+                text:'       color:"'+text1.color+'"'
                 font.pixelSize: app.fs
                 color: app.c2
                 Marco{id:mr2;padding:app.fs*0.1}
@@ -100,7 +101,7 @@ Item {
                 }
             }
             Text{
-                text:'       font.pixelSize:'+parseInt(rect1.font.pixelSize)
+                text:'       font.pixelSize:'+parseInt(text1.font.pixelSize)
                 font.pixelSize: app.fs
                 color: app.c2
                 Marco{id:mr3;padding:app.fs*0.1}
@@ -110,6 +111,78 @@ Item {
                     Behavior on opacity{NumberAnimation{duration:500}}
                     Text{
                         text:'NUMERO\nENTERO'
+                        font.pixelSize: app.fs*0.5
+                        color: app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
+            Text{
+                id:text4
+                text:'       textFormat:Text.AutoText'
+                font.pixelSize: app.fs
+                color: app.c2
+                height:opacity!==0.0?txt1.height:0
+                Behavior on opacity{NumberAnimation{duration:500}}
+                Behavior on height{NumberAnimation{duration:500}}
+                Marco{id:mr4;padding:app.fs*0.1}
+                Marco{
+                    id:me4;padding:app.fs*0.1
+                    opacity:0.0
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    Text{
+                        text:'Enumerador\nde Text{}'
+                        font.pixelSize: app.fs*0.5
+                        color: app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
+            Text{
+                id:text6
+                text:'       width: '+parseInt(app.fs*5)
+                font.pixelSize: app.fs
+                color: app.c2
+                height:opacity!==0.0?txt1.height:0
+                Behavior on opacity{NumberAnimation{duration:500}}
+                Behavior on height{NumberAnimation{duration:500}}
+                Marco{id:mr6;padding:app.fs*0.1}
+                Marco{
+                    id:me6;padding:app.fs*0.1
+                    opacity:0.0
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    Text{
+                        text:'NÙMERO\nENTERO'
+                        font.pixelSize: app.fs*0.5
+                        color: app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
+            Text{
+                id:text5
+                text:'       wrapMode:Text.WordWrap'
+                font.pixelSize: app.fs
+                color: app.c2
+                height:opacity!==0.0?txt1.height:0
+                Behavior on opacity{NumberAnimation{duration:500}}
+                Behavior on height{NumberAnimation{duration:500}}
+                Marco{id:mr5;padding:app.fs*0.1}
+                Marco{
+                    id:me5;padding:app.fs*0.1
+                    opacity:0.0
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    Text{
+                        text:'Enumerador\nde Text{}'
                         font.pixelSize: app.fs*0.5
                         color: app.c2
                         horizontalAlignment: Text.AlignHCenter
@@ -133,18 +206,53 @@ Item {
             clip:false
             anchors.verticalCenter: parent.verticalCenter
             Text{
-                id:rect1
+                id:text1
                 width: app.fs*6
-                height: app.fs*5
+                height: contentHeight
                 x:parseInt(app.fs)
                 y: parseInt(app.fs)+xV4.tvh
-                color: tColors.running?arrcolors[tColors.v]:'red'
-                text:'<b>Texto de Ejemplo</b>'
-                font.pixelSize: app.fs
-                textFormat: Text.Normal
+                color: tColors.running?arrcolors[tColors.v]:app.c2
+                //text:tText.running?arrtext[tText.v]:text1.e1+'Texto de Ejemplo'+text1.e2
+                font.pixelSize: tFontSize.running?arrfs[tFontSize.v]:app.fs
+                //textFormat: Text.Normal
                 //wrapMode: Text.WrapAnywhere
+                property string e1: ''
+                property string e2: ''
+                property var arrtext:['Texto de Ejemplo','Hola Qml', 'YosoY', 'Eu Gatit', 'Dana y Lito', 'Natalia te amo']
                 property var arrcolors:['red', 'pink', '#ff8833', 'green', 'gray']
-                property var arrbws:[app.fs*0.1, app.fs*0.3, 1, app.fs*0.8, app.fs*0.5,app.fs*1.5]
+                property var arrfs:[app.fs*0.6, app.fs*0.3, 8, app.fs*0.8, app.fs*0.5,app.fs*1.5]
+                Rectangle{
+                    id:mantxt
+                    color: 'transparent'
+                    border.color: 'red'
+                    border.width: 1
+                    width: parent.contentWidth
+                    height: parent.contentHeight
+                    //anchors.centerIn: text1
+                    Text{
+                        text:'Tamaño\ndel Texto'
+                        font.pixelSize: app.fs*0.5
+                        color: 'red'
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+                Timer{
+                    id:tText
+                    running: false
+                    repeat: true
+                    interval: 2000
+                    property int v: 0
+                    onTriggered: {
+                        if(v<text1.arrtext.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                    }
+                }
                 Timer{
                     id:tColors
                     running: false
@@ -152,237 +260,30 @@ Item {
                     interval: 650
                     property int v: 0
                     onTriggered: {
-                        if(v<rect1.arrcolors.length-1){
+                        if(v<text1.arrcolors.length-1){
                             v++
                         }else{
                             v=0
                         }
                     }
                 }
-
-
+                Timer{
+                    id:tFontSize
+                    running: false
+                    repeat: true
+                    interval: 650
+                    property int v: 0
+                    onTriggered: {
+                        if(v<text1.arrfs.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                    }
+                }
             }
         }
     }
-
-
-    //    //3
-    //    Row{
-    //        id:x3
-    //        anchors.centerIn: r
-    //        opacity:0.0
-    //        spacing:app.fs
-    //        property int fsh: r.height*0.045
-    //        Behavior on opacity{NumberAnimation{duration:500}}
-    //        Column{
-    //            spacing: x3.fsh*0.15
-    //            Text{
-    //                text:'<b>Còdigo QML - Elemento Rectangle</b>'
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //            Text{
-    //                text:'import QtQuick 2.0'
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //            Text{
-    //                text:'Rectangle{'
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //            Item{
-    //                width: colTextos100.width
-    //                height: colTextos100.height
-    //                Marco{
-    //                    padding:app.fs*0.5
-    //                    Text{
-    //                        text:'Propiedades\nHeredadas\ndel\nElemento Item{}'
-    //                        font.pixelSize: x3.fsh*0.65
-    //                        color: app.c2
-    //                        anchors.verticalCenter: parent.verticalCenter
-    //                        anchors.left: parent.right
-    //                        anchors.leftMargin:app.fs
-    //                        horizontalAlignment: Text.AlignHCenter
-    //                        Marco{padding:app.fs*0.25}
-    //                        Rectangle{
-    //                            width: app.fs
-    //                            height: app.fs*0.1
-    //                            color:app.c2
-    //                            anchors.verticalCenter: parent.verticalCenter
-    //                            anchors.right: parent.left
-    //                        }
-    //                    }
-    //                }
-    //                Column{
-    //                    id:colTextos100
-    //                    spacing: x3.fsh*0.15
-    //                    Text{
-    //                        text:'       x:'+parseInt(rect2.x)+'\n       y:'+parseInt(rect2.y)
-    //                        font.pixelSize: x3.fsh
-    //                        color: app.c2
-    //                    }
-    //                    Text{
-    //                        text:'       widht:'+parseInt(rect2.width)+'\n       heigth:'+parseInt(rect2.height)
-    //                        font.pixelSize: x3.fsh
-    //                        color: app.c2
-    //                    }
-    //                    Text{
-    //                        text:'       opacity:'+parseFloat(rect2.opacity).toFixed(1)+'\n       visible:'+rect2.visible+'    '
-    //                        font.pixelSize: x3.fsh
-    //                        color: app.c2
-    //                    }
-    //                }
-    //            }
-    //            Text{
-    //                text:'       color:"'+rect1.color+'"'
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //            Text{
-    //                text:'       radius:'+parseInt(rect1.radius)
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //            Text{
-    //                text:'       border.color:"'+rect1.border.color+'"'
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //            Text{
-    //                text:'       border.width:'+parseInt(rect1.border.width)
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //            Text{
-    //                text:'}'
-    //                font.pixelSize: x3.fsh
-    //                color: app.c2
-    //            }
-    //        }
-
-    //        Xv{
-    //            id:v3
-    //            tvh:app.fs
-    //            width: app.fs*16
-    //            height: r.height-app.fs*8
-    //            clip:false
-    //           anchors.verticalCenter: parent.verticalCenter
-    //            Rectangle{
-    //                id:rect2
-    //                width: app.fs*6
-    //                height: app.fs*5
-    //                x:parseInt(app.fs)
-    //                y: parseInt(app.fs)+xV4.tvh
-    //                radius: app.fs*0.75
-    //                color: '#ff8833'
-    //                border.color: 'red'
-    //                border.width: app.fs*0.5
-    //                property var arrdim: [app.fs*3, app.fs*2, app.fs*4.5]
-    //                property var arrpos: [app.fs*1, app.fs*3, app.fs*2]
-    //                property var arrops: [0.5, 1.0,0.1, 0.8]
-    //                Behavior on x{NumberAnimation{duration:500}}
-    //                Behavior on y{NumberAnimation{duration:500}}
-    //                Behavior on width{NumberAnimation{duration:500}}
-    //                Behavior on height{NumberAnimation{duration:500}}
-    //                Behavior on opacity{NumberAnimation{duration:500}}
-    //                Marco{
-    //                    id:marcoItem; padding: 2
-    //                    Rectangle{
-    //                        width: app.fs
-    //                        height: 1
-    //                        color:app.c2
-    //                        anchors.verticalCenter: parent.verticalCenter
-    //                        anchors.left: parent.right
-    //                    }
-    //                    Text{
-    //                        text:'Elemento\nItem{}\nBase'
-    //                        font.pixelSize: app.fs*0.5
-    //                        color:app.c2
-    //                        horizontalAlignment: Text.AlignHCenter
-    //                        anchors.verticalCenter: parent.verticalCenter
-    //                        anchors.left: parent.right
-    //                        anchors.leftMargin: app.fs
-    //                        Marco{padding: app.fs*0.25}
-    //                    }
-
-    //                }
-
-    //                Text{
-    //                    id:txtmi
-    //                    text:'Rectangle Herada\nde Item{}\nsus Propiedades\ny Mètodos'
-    //                    font.pixelSize: app.fs*0.35
-    //                    color:'white'
-    //                    horizontalAlignment: Text.AlignHCenter
-    //                    anchors.verticalCenter: parent.verticalCenter
-    //                    anchors.left: parent.right
-    //                    anchors.leftMargin: app.fs
-    //                    anchors.centerIn: parent
-    //                }
-    //                Timer{
-    //                    id:tDim
-    //                    running: false
-    //                    repeat: true
-    //                    interval: 1000
-    //                    property int v: 0
-    //                    onTriggered: {
-    //                        if(v<rect2.arrdim.length-1){
-    //                            v++
-    //                        }else{
-    //                            v=0
-    //                        }
-    //                        rect2.width=rect2.arrdim[v]
-    //                        rect2.height=rect2.arrdim[v]
-    //                    }
-    //                }
-    //                Timer{
-    //                    id:tPos
-    //                    running: false
-    //                    repeat: true
-    //                    interval: 1000
-    //                    property int v: 0
-    //                    onTriggered: {
-    //                        if(v<rect2.arrpos.length-1){
-    //                            v++
-    //                        }else{
-    //                            v=0
-    //                        }
-    //                        rect2.x=rect2.arrpos[v]
-    //                        rect2.y=rect2.arrpos[v]
-    //                    }
-    //                }
-    //                Timer{
-    //                    id:tOp
-    //                    running: false
-    //                    repeat: true
-    //                    interval: 1555
-    //                    property int v: 0
-    //                    onTriggered: {
-    //                        if(v<rect2.arrops.length-1){
-    //                            v++
-    //                        }else{
-    //                            v=0
-    //                        }
-    //                        rect2.opacity=rect2.arrops[v]
-    //                    }
-    //                }
-    //                Timer{
-    //                    id:tVis
-    //                    running: false
-    //                    repeat: true
-    //                    interval: 2155
-    //                    property int v: 0
-    //                    onTriggered: {
-    //                        rect2.visible=!rect2.visible
-    //                    }
-    //                }
-    //            }
-    //        }
-
-    //    }
-
-
-
     Timer{
         running: r.visible
         repeat: true
@@ -415,6 +316,83 @@ Item {
                 mr3.opacity=0.0
                 //mr4.opacity=0.0
             }
+
+            mr1.opacity=app.p(31, 35)||app.p(44, 71)?1.0:0.0
+            me1.opacity=app.p(44, 71)?1.0:0.0
+            tText.running=app.p(44, 71)
+
+            mr2.opacity=app.p(35, 37)||app.p(71, 97)?1.0:0.0
+            me2.opacity=app.p(71, 97)?1.0:0.0
+            tColors.running=app.p(71, 97)
+
+            mr3.opacity=app.p(37, 42)||app.p(97, 120)?1.0:0.0
+            me3.opacity=app.p(97, 120)?1.0:0.0
+            tFontSize.running=app.p(97, 120)
+
+            if(app.p(175, 180)){
+                text1.e1='<b>'
+                text1.e2='</b>'
+                text1.textFormat=Text.AutoText
+            }else if(app.p(180, 188)){
+                text1.e1='<u>'
+                text1.e2='</u>'
+                text1.textFormat=Text.AutoText
+            }else if(app.p(188, 197)){
+                text1.e1='<i>'
+                text1.e2='</i>'
+                text1.textFormat=Text.AutoText
+            }else if(app.p(210, 225)){
+                text1.e1='<h4>'
+                text1.e2='</h4>'
+                text1.textFormat=Text.RichText
+            }else if(app.p(256, 265)){
+                text1.e1=''
+                text1.e2='\nnueva linea'
+                text1.textFormat=Text.AutoText
+            }else{
+                text1.e1=''
+                text1.e2=''
+                text1.textFormat=Text.AutoText
+                text1.text='Texto de Ejemplo\nnueva linea'
+            }
+
+
+
+            text4.opacity=app.p(210, 328)?1.0:0.0
+             mr4.opacity=app.p(210, 242)?1.0:0.0
+            if(app.p(210, 225)){
+                text4.text='       textFormat: Text.RichText'
+            }else if(app.p(225, 235)){
+                text4.text='       textFormat: Text.AutoText'
+            }else if(app.p(235, 242)){
+                text4.text='       textFormat: Text.PlainText'
+                text1.textFormat=Text.PlainText
+                text1.e1='<b>'
+                text1.e2='</b>'
+            }else{
+                text4.text='       textFormat: Text.AutoText'
+            }
+            text1.text=tText.running?text1.arrtext[tText.v]:text1.e1+'Texto de Ejemplo'+text1.e2
+            text100.text='       text:"'+text1.text.replace(/\n/g,'\\n')+'"'
+
+            text6.opacity=app.p(276, 328)?1.0:0.0
+            mr6.opacity=app.p(276, 279)?1.0:0.0
+            mantxt.opacity=app.p(276, 299)?1.0:0.0
+            //text1.width=app.p(276, 299)?app.fs*5:0
+
+            text5.opacity=app.p(281, 328)?1.0:0.0
+            mr5.opacity=app.p(281, 299)?1.0:0.0
+            text5.text=app.p(291, 299)?'       wrapMode: Text.WrapAnywhere':'       wrapMode: Text.WordWrap'
+            if(app.p(281, 291)){
+                text1.wrapMode=Text.WordWrap
+                text1.width=app.fs*5
+            }else if(app.p(291, 299)){
+                text1.wrapMode=Text.WrapAnywhere
+                text1.width=app.fs*2.5
+            }else{
+                text1.wrapMode=Text.NoWrap
+                text1.width=0
+            }
         }
     }
     function e(n){
@@ -426,7 +404,7 @@ Item {
     }
 
     Component.onCompleted: {
-        controles.asec=[0,10, 21, 32, 44]
+        controles.asec=[0,10, 21, 28, 44, 71, 97,120, 167,194, 210, 244, 256, 270,300]
         var at=''
         //Pr
         at+='Elemento Text'
